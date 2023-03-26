@@ -66,7 +66,7 @@ samples = d3.json(url).then(function(data) {
     // }
             
     d3select.on("change",function() {
-                let sample = samples.filter(x=>x==x.id);
+                let sample = samples.filter(x=>x==this.value);
                 let otu_ids = sample.otu_ids.slice(0,10);
                 //otu_ids_list.push(otu_ids);
                 let sample_values = sample.sample_values.slice(0,10);
@@ -85,7 +85,7 @@ samples = d3.json(url).then(function(data) {
                 // sample_values_list.push(sample_values);
                 // let otu_labels = sample.otu_labels.slice(0,10);
                 // otu_labels_list.push(otu_labels);
-        console.log(otu_ids);
+      //  console.log(otu_ids);
     // }) 
             //Get top 10 OTUs
             // for(let i=0; i<samples.length;i++)
