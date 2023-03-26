@@ -4,43 +4,60 @@ let sample_id_list = [];
 let sample_values_list = [];
 let otu_ids_list = [];
 let otu_labels_list = [];
+let samples = [];
 
 let d3select = d3.select("#selDataset");
 
-d3.json(url).then(function(data) {
-    console.log("Data : " );
-    console.log(data);
+let datadetails = d3.json(url).then(function(data) {
+    // console.log("Data : " );
+    // console.log(data);
     samples = data.samples;
+});
 
-    sample_id_list = samples.map(x=>x.id)
-    console.log(sample_id_list);
+console.log(datadetails);
+sample_id_list = samples.map(x=>x.id)
+    //console.log(sample_id_list);
 
     // var options = d3select.data(sample_id_list).enter()
 	//     .append('option')
 	// 	.text(function (d) { return d; });
-    var options = d3select.selectAll("option")
-        .data(data)
+var options = d3select.selectAll("option")
+        .data(sample_id_list)
         .enter()
         .append("option");
-        options.text(function(d) {
+options.text(function(d) {
             return d;
              })
-               .attr("value", function(d) {
+            .attr("value", function(d) {
             return d;
             });
+    
+d3select.on("optionChanged",function() {
+        let sample = samples.filter(function(){
+            this.id == this.value;
+});
+console.log(this.value);
+console.log(sample);
+        // let otu_ids = sample.otu_ids.slice(0,10);
+        // otu_ids_list.push(otu_ids);
+        // let sample_values = sample.sample_values.slice(0,10);
+        // sample_values_list.push(sample_values);
+        // let otu_labels = sample.otu_labels.slice(0,10);
+        // otu_labels_list.push(otu_labels);
+console.log(otu_ids);
+}) 
     //Get top 10 OTUs
-    for(let i=0; i<samples.length;i++)
-    {
-        let sample = samples[i];
-        sample_id_list.push(sample.id);
-
+    // for(let i=0; i<samples.length;i++)
+    // {
+    //     let sample = samples[i];
+    //     sample_id_list.push(sample.id);
         // let otu_ids  = sample.otu_ids.slice(0,10);
         // otu_ids_list.push(otu_ids);
         // let sample_values = sample.sample_values.slice(0,10);
         // sample_values_list.push(sample_values);
         // let otu_labels = sample.otu_labels.slice(0,10);
         // otu_labels_list.push(otu_labels);
-    }
+    //}
 
     // var otu_ids_list_str = otu_ids_list[0].map(function (x) { 
     //     return "OUT "+x; 
@@ -61,4 +78,3 @@ d3.json(url).then(function(data) {
     // Plotly.newPlot("plot", [trace1], layout);
 
 
-});
