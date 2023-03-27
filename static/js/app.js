@@ -1,9 +1,9 @@
 //URL for analysis
 const url = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json";
 let sample_id_list = [];
-let sample_values_list = [];
-let otu_ids_list = [];
-let otu_labels_list = [];
+//let sample_values_list = [];
+//let otu_ids_list = [];
+//let otu_labels_list = [];
 let samples = [];
 
 let d3select = d3.select("#selDataset");
@@ -72,7 +72,7 @@ function drawBubbleChart(sampleid){
         var dataBubble = [trace1];
         
         var layout = {
-            title: 'OUT ids',
+            title: 'OTU ids per sample',
             showlegend: false,
             // height: 600,
             // width: 600
@@ -103,7 +103,7 @@ function drawBarChart(sampleid){
         };
 
         let layout = {
-            title: "A Plotly pglot"
+            title: "Bacteria Cultures per Sample"
         };
         
         Plotly.newPlot("plot", [trace1], layout);
