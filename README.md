@@ -23,4 +23,4 @@ Update of all the plots happens when a new sample is selected.
 
 Static page
 ------------------------
-
+https://shwetajain1022.github.io/belly-button-challenge/ 
