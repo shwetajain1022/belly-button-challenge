@@ -18,7 +18,7 @@ e. Use otu_labels for the text values.
 
 Bubble Chart
 --------------------------
-a. Displayed the sample metadata, i.e., an individual's demographic information. 
+a. Displayed the sample metadata, i.e., an individual's demographic information. \
 b. Displayed each key-value pair from the metadata JSON object somewhere on the page.
 
 Updated of all the plots happens when a new sample is selected. 
